@@ -1,4 +1,4 @@
-const input = document.getElementById('inputtext');
+const display = document.getElementById('display'); // Corrected to match HTML
 const buttons = document.querySelectorAll('button');
 
 function calculate(expression) {
@@ -11,16 +11,15 @@ function calculate(expression) {
     }
 }
 
-
 function operation(buttonValue) {
-    if (buttonValue === 'C') {
-        input.value = '';
-    } else if (buttonValue === 'DEL') {
-        input.value = input.value.slice(0, -1);
+    if (buttonValue === 'Clear') {  // Updated to match the button text
+        display.value = '';  // Clear display
+    } else if (buttonValue === 'Del') {  // Updated to match the button text
+        display.value = display.value.slice(0, -1);  // Delete last character
     } else if (buttonValue === '=') {
-        input.value = calculate(input.value);
+        display.value = calculate(display.value);  // Perform calculation
     } else {
-        input.value += buttonValue;
+        display.value += buttonValue;  // Append button value to display
     }
 }
 
